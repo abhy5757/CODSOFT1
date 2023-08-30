@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Colorful Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .output {
+            background-color: #f1c40f;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="output" id="output">0</div>
+        <button class="button" onclick="appendToOutput('7')">7</button>
+        <button class="button" onclick="appendToOutput('8')">8</button>
+        <button class="button" onclick="appendToOutput('9')">9</button>
+        <br>
+        <button class="button" onclick="appendToOutput('4')">4</button>
+        <button class="button" onclick="appendToOutput('5')">5</button>
+        <button class="button" onclick="appendToOutput('6')">6</button>
+        <br>
+        <button class="button" onclick="appendToOutput('1')">1</button>
+        <button class="button" onclick="appendToOutput('2')">2</button>
+        <button class="button" onclick="appendToOutput('3')">3</button>
+        <br>
+        <button class="button" onclick="appendToOutput('0')">0</button>
+        <button class="button" onclick="appendToOutput('+')">+</button>
+        <button class="button" onclick="calculate()">=</button>
+        <br>
+        <button class="button" onclick="clearOutput()">Clear</button>
+    </div>
+
+    <script>
+        function appendToOutput(value) {
+            document.getElementById('output').innerText += value;
+        }
+
+        function calculate() {
+            let expression = document.getElementById('output').innerText;
+            let result = eval(expression);
+            document.getElementById('output').innerText = result;
+        }
+
+        function clearOutput() {
+            document.getElementById('output').innerText = '0';
+        }
+    </script>
+</body>
+</html>
